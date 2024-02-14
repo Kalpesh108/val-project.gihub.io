@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine?</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff0f5; /* Fallback color */
+    background-image: url('backg.gif'); /* Add your background image here */
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Keep the background fixed during scrolling */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .slideshow-container {
+    display: none; /* Initially hidden */
+    position: relative;
+    max-width: 550px;
+    margin: 50px auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .slides {
+    display: none;
+    width: 100%;
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.6);
+    border: none;
+    outline: none;
+    transition: 5.0s ease;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .caption {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0 0 10px 10px;
+  }
+  .active-slide {
+    display: block;
+  }
+  .message {
+    font-size: 24px;
+    color: #5c5c5c;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffe0e0;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .response-buttons {
+    margin-top: 20px;
+  }
+  #yesButton, #noButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff6666;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  #yesButton:hover, #noButton:hover {
+    background-color: #ff3333;
+
+  
+  }
+</style>
+</head>
+<body>
+
+<!-- Slideshow container, initially hidden -->
+<div class="slideshow-container">
+  <div class="slides">
+    <img src="1.jpg" style="width:100%">
+    <div class="caption">They say your first date smile sets the tone. Mine was goofy, I know, but you saw something special. Ready to share more smiles, together?</div>
+
+  </div>
+
+  <div class="slides">
+    <img src="2.jpg" style="width:100%">
+    <div class="caption">Forget the fancy nibbles of chicken tikka, Cheers to laughter, good company, and this adorable person! ❤️</div>
+
+  </div>
+
+  <div class="slides">
+    <img src="3rd.jpg" style="width:100%">
+    <div class="caption">That date set the bar high! Who knew one night could feel so perfect?.....miss that aunty tho haha</div>
+  </div>
+
+  <div class="slides">
+    <img src="4th.jpg" style="width:100%">
+    <div class="caption">LIVERPOOOOOOOOL</div>
+  </div>
+
+  <div class="slides">
+    <img src="5th.jpg" style="width:100%">
+    <div class="caption">This brings back such sweet memories! Miss my beanie tho 😭😭, Can we recreate this soon, beanie-optional?</div>
+
+  </div>
+
+  <div class="slides">
+    <img src="6th.jpg" style="width:100%">
+    <div class="caption">This picture captures just a glimpse of the happiness you bring to my life. Love you more than words can say, honey.</div>
+  </div>
+
+  <div class="slides">
+    <img src="7th.jpg" style="width:100%">
+    <div class="caption">Feels like we never took this pic, love it tho ❤️</div>
+  </div>
+
+  <div class="slides">
+    <img src="8th.jpg" style="width:100%">
+    <div class="caption">Peter may have been the star of the day, you were so goofily adorable that day. Such happy memories! Love you (and maybe Peter a little too!)</div>
+  </div>
+
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<div class="message">
+  <p>Every moment with you is special. Will you be my Valentine ❤️?</p>
+</div>
+
+<!-- Response buttons -->
+<div class="response-buttons">
+  <button id="yesButton" onclick="showResponse('yes')">Yes, I'd love to!</button>
+  <button id="noButton" onmouseover="moveButton(this)">No</button>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("slides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 10000); // Change image every 4 seconds
+}
+
+function changeSlide(n) {
+  slideIndex += n - 1;
+  showSlides();
+}
+
+function moveButton(button) {
+  button.style.position = 'absolute';
+  button.style.top = Math.random() * window.innerHeight + 'px';
+  button.style.left = Math.random() * window.innerWidth + 'px';
+}
+
+function showResponse(response) {
+  if (response === 'yes') {
+    document.querySelector('.slideshow-container').style.display = 'block';
+    document.body.style.backgroundImage = "url('2ND.gif')"; // Change the background on 'Yes'
+    alert('Yay! You made my day!');
+  }
+}
+</script>
+
+</body>
+</html>
